@@ -1,10 +1,23 @@
 # Atlas — PI IV
 
+[![CI](https://github.com/pedrobragabes/univesp-pi4-atlas/actions/workflows/ci.yml/badge.svg)](https://github.com/pedrobragabes/univesp-pi4-atlas/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/pedrobragabes/univesp-pi4-atlas/actions/workflows/codeql.yml/badge.svg)](https://github.com/pedrobragabes/univesp-pi4-atlas/actions/workflows/codeql.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Laboratório territorial reproduzível que gera uma base sintética, valida sua qualidade, treina e avalia um classificador e apresenta os resultados em um painel acessível.
 
 O projeto é uma fundação técnica para o **Projeto Integrador em Computação IV (PJI410)** ou **Projeto Integrador Extensionista IV**, conforme a matriz vigente na matrícula. Ele cobre o núcleo comum dos PPCs de 2025 e 2026: aquisição e processamento de dados, análise, aprendizagem de máquina, visualização, ambiente reproduzível e interpretação responsável.
 
 > **Aviso:** nomes, territórios e dados deste repositório são inteiramente sintéticos. Os resultados não descrevem lugares reais e não podem orientar decisões públicas. A etapa extensionista exige parceiro, problema e dados ou validações reais, que não devem ser inventados.
+
+## Estado
+
+| Dimensão | Situação |
+|---|---|
+| fundação técnica | concluída, com 3 testes e release `v0.1.0-foundation` |
+| entrega acadêmica | pendente de parceiro, fonte autorizada, relatório e vídeo |
+| dados | exclusivamente sintéticos e declarados |
+| nuvem | pipeline validado na CI; implantação de homologação ainda não executada |
 
 ## O que já funciona
 
@@ -67,7 +80,7 @@ tests/       testes do pipeline e da aplicação
 docs/        método, dados e revisão de código
 ```
 
-O modelo serializado não é versionado porque pode ser recriado pelo pipeline. Consulte [Método e dados](docs/01-metodo-e-dados.md) e [Revisão de código](docs/02-revisao-de-codigo.md).
+O modelo serializado não é versionado porque pode ser recriado pelo pipeline. Consulte [Método e dados](docs/01-metodo-e-dados.md), [Revisão de código](docs/02-revisao-de-codigo.md), [Modelo de relatório parcial](docs/03-relatorio-parcial.md) e [Modelo de relatório final](docs/04-relatorio-final.md).
 
 ## Próximos passos acadêmicos
 
@@ -78,3 +91,7 @@ O modelo serializado não é versionado porque pode ser recriado pelo pipeline. 
 5. realizar devolutiva, análise dos resultados, relatório final e vídeo.
 
 Nenhuma dessas evidências extensionistas é simulada neste repositório.
+
+## Governança e licença
+
+As atividades devem ser acompanhadas por issues e milestones alinhados ao AVA. Consulte [SECURITY.md](SECURITY.md). O código é MIT; conjuntos de dados futuros mantêm suas próprias licenças e restrições.
