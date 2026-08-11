@@ -1,0 +1,76 @@
+{
+  "dataset": {
+    "rows": 288,
+    "territories": 12,
+    "source": "SINTETICO_DEMONSTRACAO",
+    "generated_for": "validacao_tecnica",
+    "split": {
+      "train": "2024",
+      "test": "2025",
+      "train_rows": 144,
+      "test_rows": 144
+    }
+  },
+  "model": {
+    "name": "RandomForestClassifier",
+    "accuracy": 0.7639,
+    "macro_f1": 0.766,
+    "baseline_accuracy": 0.5,
+    "labels": [
+      "Baixo",
+      "Moderado",
+      "Alto"
+    ],
+    "confusion_matrix": [
+      [
+        29,
+        5,
+        0
+      ],
+      [
+        12,
+        51,
+        9
+      ],
+      [
+        1,
+        7,
+        30
+      ]
+    ],
+    "classification_report": {
+      "Baixo": {
+        "precision": 0.6904761904761905,
+        "recall": 0.8529411764705882,
+        "f1-score": 0.7631578947368421,
+        "support": 34.0
+      },
+      "Moderado": {
+        "precision": 0.8095238095238095,
+        "recall": 0.7083333333333334,
+        "f1-score": 0.7555555555555555,
+        "support": 72.0
+      },
+      "Alto": {
+        "precision": 0.7692307692307693,
+        "recall": 0.7894736842105263,
+        "f1-score": 0.7792207792207793,
+        "support": 38.0
+      },
+      "accuracy": 0.7638888888888888,
+      "macro avg": {
+        "precision": 0.7564102564102564,
+        "recall": 0.7835827313381493,
+        "f1-score": 0.7659780765043923,
+        "support": 144.0
+      },
+      "weighted avg": {
+        "precision": 0.7707824582824583,
+        "recall": 0.7638888888888888,
+        "f1-score": 0.7635955418850155,
+        "support": 144.0
+      }
+    }
+  },
+  "warning": "Resultados demonstrativos não descrevem territórios reais nem sustentam decisão pública."
+}
