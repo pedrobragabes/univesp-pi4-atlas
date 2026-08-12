@@ -51,6 +51,7 @@ Acesse `http://127.0.0.1:3003`.
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 .\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe -m compileall -q atlas scripts tests
 ```
 
 ## Fluxo dos dados
