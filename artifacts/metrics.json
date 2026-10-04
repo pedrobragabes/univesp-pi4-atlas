@@ -4,6 +4,7 @@
     "territories": 12,
     "source": "SINTETICO_DEMONSTRACAO",
     "generated_for": "validacao_tecnica",
+    "source_sha256": "6f66e58f0b1464d444883913120fc682dc2c850cc82f64d7fc2505119d559b12",
     "split": {
       "train": "2024",
       "test": "2025",
@@ -16,6 +17,7 @@
     "accuracy": 0.7639,
     "macro_f1": 0.766,
     "baseline_accuracy": 0.5,
+    "baseline_macro_f1": 0.2222,
     "labels": [
       "Baixo",
       "Moderado",
@@ -69,6 +71,27 @@
         "recall": 0.7638888888888888,
         "f1-score": 0.7635955418850155,
         "support": 144.0
+      }
+    }
+  },
+  "reproducibility": {
+    "random_state": 42,
+    "python": "3.14.7",
+    "dependencies": {
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0"
+    },
+    "class_counts": {
+      "train": {
+        "Baixo": 42,
+        "Moderado": 66,
+        "Alto": 36
+      },
+      "test": {
+        "Baixo": 34,
+        "Moderado": 72,
+        "Alto": 38
       }
     }
   },
