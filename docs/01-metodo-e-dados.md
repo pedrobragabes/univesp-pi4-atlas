@@ -10,6 +10,8 @@ A pergunta serve para validar o pipeline. A pergunta definitiva deverá nascer d
 
 O arquivo `data/raw/demonstracao_territorial.csv` é gerado por `scripts/generate_demo_data.py` com semente 42. Todos os registros declaram a origem `SINTETICO_DEMONSTRACAO`. Qualquer outra origem é rejeitada nesta versão para impedir que uma base desconhecida seja tratada como validada.
 
+O contrato também rejeita nomes de colunas e pares território/competência duplicados, territórios vazios, valores numéricos não finitos ou contagens fracionárias. Competências precisam usar `AAAA-MM-DD`, ser o primeiro dia do mês e pertencer a 2024 ou 2025. Nenhuma linha de outro período pode inflar o total enquanto fica fora do treino e teste. O hash SHA-256 registra os mesmos bytes usados pela leitura, junto das versões efetivas e contagens por classe em `metrics.json`.
+
 | Campo | Tipo | Significado | Regra principal |
 |---|---|---|---|
 | `competencia` | data | primeiro dia do mês observado | data ISO válida |
@@ -47,9 +49,12 @@ A separação temporal evita treinar com observações futuras. Os mesmos territ
 | acurácia do modelo | 0,7639 |
 | F1 macro | 0,7660 |
 | acurácia da linha de base | 0,5000 |
+| F1 macro da linha de base | 0,2222 |
 | registros de teste | 144 |
 
 Os artefatos completos ficam em `artifacts/metrics.json` e `artifacts/predictions.csv`.
+
+A probabilidade máxima exportada como `confianca` não foi calibrada. Os testes reproduzem métricas, agregações e previsões em duas execuções no mesmo ambiente e verificam o modelo serializado contra as previsões; versões ou plataformas distintas exigem nova conferência.
 
 ## Limitações e ética
 

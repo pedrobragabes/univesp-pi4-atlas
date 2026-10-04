@@ -44,6 +44,7 @@ class AtlasTest(unittest.TestCase):
             self.assertIn("Dados não são", response.get_data(as_text=True))
             self.assertNotIn("style=", response.get_data(as_text=True))
             self.assertIn("<progress", response.get_data(as_text=True))
+            self.assertEqual(response.get_data(as_text=True).count('<progress max="100"'), 12)
             api = client.get("/api/resumo")
             self.assertEqual(api.status_code, 200)
             self.assertEqual(len(json.loads(api.data)["territories"]), 12)

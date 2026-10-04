@@ -12,20 +12,20 @@ TERRITORIES = ["Aurora", "Central", "Estação", "Horizonte", "Jardins", "Lago N
 
 
 def generate(output: Path = OUTPUT, seed: int = 42) -> Path:
-    random.seed(seed)
+    rng = random.Random(seed)
     output.parent.mkdir(parents=True, exist_ok=True)
     rows = []
     for territory_index, territory in enumerate(TERRITORIES):
-        population = 5500 + territory_index * 1250 + random.randint(-350, 350)
+        population = 5500 + territory_index * 1250 + rng.randint(-350, 350)
         service_base = 58 + (territory_index % 5) * 7
         for offset in range(24):
             year = 2024 + offset // 12
             month = offset % 12 + 1
-            rain = max(8, 115 + 82 * math.sin((month - 1) / 12 * 2 * math.pi) + random.gauss(0, 22))
-            temperature = 22.5 + 4.2 * math.sin((month - 2) / 12 * 2 * math.pi) + random.gauss(0, 1.2)
-            coverage = min(98, max(38, service_base + random.gauss(0, 5)))
-            calls = max(4, round(population / 520 + rain / 24 + (100 - coverage) / 5 + random.gauss(0, 4)))
-            response_hours = max(2.5, 9 + calls * .72 + (100 - coverage) * .19 + random.gauss(0, 4))
+            rain = max(8, 115 + 82 * math.sin((month - 1) / 12 * 2 * math.pi) + rng.gauss(0, 22))
+            temperature = 22.5 + 4.2 * math.sin((month - 2) / 12 * 2 * math.pi) + rng.gauss(0, 1.2)
+            coverage = min(98, max(38, service_base + rng.gauss(0, 5)))
+            calls = max(4, round(population / 520 + rain / 24 + (100 - coverage) / 5 + rng.gauss(0, 4)))
+            response_hours = max(2.5, 9 + calls * .72 + (100 - coverage) * .19 + rng.gauss(0, 4))
             pressure = calls / (population / 1000) * .38 + response_hours / 24 * .34 + (100 - coverage) / 45 * .28
             # Limiares fixos produzem três faixas interpretáveis sem usar
             # quantis calculados a partir do próprio conjunto de avaliação.

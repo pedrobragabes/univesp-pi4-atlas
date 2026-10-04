@@ -30,8 +30,7 @@ def create_app(artifacts: Path = ARTIFACTS) -> Flask:
     @app.get("/")
     def dashboard():
         metrics, territories = load_artifacts(artifacts)
-        maximum = max((item["pressao_alta_pct"] for item in territories), default=1) or 1
-        return render_template("dashboard.html", metrics=metrics, territories=territories, maximum=maximum)
+        return render_template("dashboard.html", metrics=metrics, territories=territories)
 
     @app.get("/metodo")
     def method():

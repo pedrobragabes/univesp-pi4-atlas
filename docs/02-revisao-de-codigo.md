@@ -59,4 +59,14 @@ O pipeline importa `joblib`, inicialmente disponível apenas como dependência t
 
 ## Parecer
 
+### Atualização de 4 de outubro de 2026
+
+Foram corrigidas três falhas de contrato: duplicatas de território/mês podiam inflar a amostra; infinitos/contagens fracionárias não eram rejeitados antes do modelo; anos adicionais entravam no total sem participar da divisão temporal. Agora a validação falha antes de publicar artefatos nessas condições e também rejeita cabeçalhos duplicados, nomes vazios e datas fora do contrato.
+
+O gerador usa `random.Random(42)` local, sem alterar o estado aleatório global. Métricas registram hash dos bytes efetivamente lidos, Python, dependências, semente e classes por período. Onze testes e casos negativos parametrizados passaram; duas execuções geram JSON/CSV idênticos e o modelo recarregado reproduz as previsões. `pip check`, compilação e `pip-audit` dos requisitos passaram, sem vulnerabilidades conhecidas no corte verificado.
+
+As barras passaram de escala relativa ao maior território para 0–100%, coerente com a unidade publicada. O salto ao conteúdo recebe foco e deixa o título abaixo do cabeçalho fixo. Dois testes Chromium locais (1280 px e 390 px), quatro auditorias Axe e a API passaram; screenshots foram inspecionadas. Os artefatos desta inspeção local ficam no registro da execução, não são atribuídos ao CI do repositório e não certificam WCAG completa.
+
+O [relatório parcial técnico](03-relatorio-parcial.md) relaciona requisitos, decisões, testes, resultados e limites. Não inclui parceiro, entrevistas, consentimentos ou resultados reais inventados.
+
 A fundação está adequada para publicação como protótipo acadêmico e demonstração técnica. Ela ainda não constitui a entrega extensionista final: parceiro, dados autorizados, validação com usuários e documentos exigidos pelo AVA deverão ser acrescentados no semestre correspondente.

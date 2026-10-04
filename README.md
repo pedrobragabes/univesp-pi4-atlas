@@ -14,7 +14,7 @@ O projeto é uma fundação técnica para o **Projeto Integrador em Computação
 
 | Dimensão | Situação |
 |---|---|
-| fundação técnica | concluída, com 3 testes e release `v0.1.0-foundation` |
+| fundação técnica | release `v0.1.0-foundation`, agora ampliada para 11 testes e rastreabilidade |
 | entrega acadêmica | pendente de parceiro, fonte autorizada, relatório e vídeo |
 | dados | exclusivamente sintéticos e declarados |
 | nuvem | pipeline validado na CI; implantação de homologação ainda não executada |
@@ -22,11 +22,11 @@ O projeto é uma fundação técnica para o **Projeto Integrador em Computação
 ## O que já funciona
 
 - geração determinística de 288 observações, em 12 territórios fictícios e 24 meses;
-- validação de esquema, origem, ausência de nulos e faixas numéricas;
+- validação de esquema/origem, nulos, números finitos, inteiros, faixas, unicidade território/mês e competências 2024–2025;
 - pipeline com preparação, codificação categórica e Random Forest;
 - avaliação temporal: treino em 2024 e teste em 2025;
 - comparação obrigatória com `DummyClassifier`;
-- exportação de métricas, matriz de confusão, previsões e agregações;
+- exportação de métricas, matriz de confusão, previsões, agregações, hash da entrada, versões e distribuição das classes;
 - painel Flask responsivo e API JSON;
 - testes automatizados e integração contínua.
 
@@ -51,6 +51,7 @@ Acesse `http://127.0.0.1:3003`.
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 .\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe -m compileall -q atlas scripts tests
 ```
 
 ## Fluxo dos dados
@@ -80,7 +81,7 @@ tests/       testes do pipeline e da aplicação
 docs/        método, dados e revisão de código
 ```
 
-O modelo serializado não é versionado porque pode ser recriado pelo pipeline. Consulte [Método e dados](docs/01-metodo-e-dados.md), [Revisão de código](docs/02-revisao-de-codigo.md), [Modelo de relatório parcial](docs/03-relatorio-parcial.md) e [Modelo de relatório final](docs/04-relatorio-final.md).
+O modelo serializado não é versionado porque pode ser recriado pelo pipeline. Consulte [Método e dados](docs/01-metodo-e-dados.md), [Revisão de código](docs/02-revisao-de-codigo.md), [Relatório parcial técnico preenchido](docs/03-relatorio-parcial.md) e [Modelo de relatório final](docs/04-relatorio-final.md). O relatório parcial registra o laboratório sintético; parceiro, dados reais, devolutiva e entrega extensionista continuam pendentes.
 
 ## Próximos passos acadêmicos
 
